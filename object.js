@@ -18,6 +18,9 @@ function Circle(radius){
         console.log('draw');
     }
 }
+// {}represents the object that is going create(this keyword)
+Circle.call({}, 1);
+Circle.apply({}, [1, 2, 3]);
 
 const circle2 = new Circle(2);
 
