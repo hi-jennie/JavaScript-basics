@@ -26,9 +26,30 @@ const circle4 = new Circle3(3);
 // Constructor Function
 function Circle(radius){
     this.radius = radius;
+    // both defaultLocation and computeOptimumLocation are local variables, not properties of the circle object
+    let defaultLocation = {x: 0, y: 0}; // encapsulation
+    let computeOptimumLocation = function(factor) {
+        // ...
+    }
     this.draw = function() {
+        computeOptimumLocation(0.1); 
+        // this.radius 
         console.log('draw');
     }
+    
+    // getter and setter
+    Object.defineProperty(this,'defaultLocation', {
+        get: function() {
+            return defaultLocation;
+        },
+        set: function(value) {
+            if (!value.x || !value.y)
+                throw new Error('Invalid location.');
+            defaultLocation = value;
+        }
+    }
+
+    );
 }
 // {}represents the object that is going create(this keyword)
 Circle.call({}, 1);
@@ -49,3 +70,6 @@ for (let key in circle2) {
 const keys = Object.keys(circle2); // return an array of keys
 
 if ('radius' in circle2) console.log('Circle has a radius.');
+
+// abstraction:
+// hide the details and show the essentials
