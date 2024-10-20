@@ -71,5 +71,15 @@ const keys = Object.keys(circle2); // return an array of keys
 
 if ('radius' in circle2) console.log('Circle has a radius.');
 
-// abstraction:
-// hide the details and show the essentials
+const person = {
+    name: 'Jennie',
+    age: 25,
+    walk(){},
+    talk(){}
+}
+
+person.talk();
+person.name = '';
+
+const targetMember = 'name';
+person[targetMember] = 'Rustin';

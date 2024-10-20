@@ -4,7 +4,7 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 numbers.filter(function(number) {
     return number % 2 === 0; // return even numbers
 });
-
+// we can use arrow function to simplify the code.
 const evenNumbers = numbers.filter(number => number % 2 === 0); // arrow function
 
 
