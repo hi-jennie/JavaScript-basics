@@ -6,9 +6,9 @@ console.log('hello world!');
 let name = 'jennie'; // string literal
 let age = 30; // number literal
 let isApproved = true; // boolean literal
-let firstName = undefined; // undefined
+let firstName = 'xue'; // undefined
 let selectedColor = null; // null
-console.log(name);
+
 
 // dynamic typing
 age = 'Jennie'; // now age is string

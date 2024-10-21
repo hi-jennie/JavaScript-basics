@@ -14,4 +14,4 @@ console.log(message.endsWith('message'));
 
 
 // string object
-const another = new String('hi');
+// const another = new String('hi');

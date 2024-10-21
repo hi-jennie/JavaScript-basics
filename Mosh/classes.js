@@ -1,6 +1,6 @@
 // import { Teacher } from './teacher.js';
 import Teacher from './teacher.js';
-import React, { Component } from 'react'; // named import
+// import React, { Component } from 'react'; // named import
 // default import -> import ... from '';
 // named import -> import { ... } from '';
 

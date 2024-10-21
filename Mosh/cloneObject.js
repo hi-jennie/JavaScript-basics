@@ -10,8 +10,8 @@ const copy = {};
 for (let key in circle) copy[key] = circle[key];
 
 // clone circle object using Object.assign
-const copy2 = Object.assign({}, circle);
-const copy3 = Object.assign({color: 'red'}, circle);
+// const copy2 = Object.assign({}, circle);
+// const copy3 = Object.assign({color: 'red'}, circle);
 
 // clone circle object using spread operator
 const copy4 = {...circle};
