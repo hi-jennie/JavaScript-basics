@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM</title>
+	</head>
+	<body>
+		<button>hello</button>
+		<button class='js-button'>Second button</button>
+		<button>hello</button>
+		
+		<script>
+			console.log(document.title); // return the title at the top of the page
+			console.log(document.body); // return the body between the <body> tags
+			// document.body.innerHTML = '<button>good job</button>';
+			
+			 // return the button element inside the body
+			console.log(document.querySelector('button'));
+			document.querySelector('button').innerHTML = 'good job';// change hello to good job
+			// HTML elements are JS objects so we can save it in an variable
+			const buttonElement = document.querySelector('.js-button');
+
+			/*
+			DOM combines the HTML and JS together
+			It gives JS full control over the HTML page
+			
+			*/
+		</script>
+	</body>
+</html>
+
