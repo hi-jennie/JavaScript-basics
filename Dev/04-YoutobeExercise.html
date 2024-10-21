@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Youtube</title>
+	</head>
+	<body>
+    <p>YouTuBe Subscribe Button</p><br>
+    <button onclick="subscribe();" class="subscribeButton">Subscribe</button>
+
+    <p>Amazon</p>
+    <a href="http://localhost:5500/Dev/02-cart-quantity.html">Click here</a>
+
+    <p>
+      Amazon Shipping Calculator<br>
+      Order under $40 =+$10 shipping.<br>
+      Order over $40 = free shipping.<br>
+    </p>
+
+    <input type="number" id="originalPrice" placeholder="enter price"> 
+    <button onclick="calculateShipping()">Calculate</button>
+    
+    <p id="result"></p>
+    
+    <script>
+      function subscribe() {
+        const subscribeButton = document.querySelector('.subscribeButton');
+        if(subscribeButton.innerText === 'Subscribe') {
+          subscribeButton.innerText = 'Subscribed';
+        } else {
+          subscribeButton.innerText = 'Subscribe';
+        }
+      }
+      function calculateShipping() {
+        const price = document.getElementById('originalPrice').value;
+        let shipping = 0;
+        if(price < 40) {
+          shipping += 10;
+        }
+        const finalPrice = Number(price) + Number(shipping);
+        
+        const resultElement = document.getElementById('result');
+        resultElement.textContent = `${finalPrice}`;
+    }
+    </script>
+  </body>
+</html> 

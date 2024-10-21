@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rock Paper Scissors</title>
+	</head>
+	<body>
+    <p>Rock Paper Scissors</p>
+    <button onclick="playGame('rock');">Rock</button>
+    <button onclick="playGame('paper');">Paper</button>
+    <button onclick="playGame('scissors');">Scissors</button>
+    <p class="result"></p>
+    <p class="moves"></p>
+    <p class="score"></p>
+    <button onclick="
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      localStorage.removeItem('score');
+      updateScoreElement();
+    ">Reset score</button>
+
+
+    <script>
+      // 尝试从浏览器的 localStorage 中获取并解析分数数据。
+	    // 如果获取失败（如键名不存在或存储为空），则使用一个默认的分数对象 { wins: 0, losses: 0, ties: 0 }。
+      // 后续当score更新了之后会直接从本地那score数据
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0,
+        ties: 0
+      };
+
+      updateScoreElement();
+      
+      function playGame(playerMove) {
+        const computerMove = pickComputerMove();
+        let result = '';
+        if(playerMove === computerMove) {
+          result = 'Tie';
+          score.ties++;
+        } else if (playerMove === 'rock' && computerMove === 'scissors') {
+          result = 'player wins';
+          score.wins++;
+        } else if (playerMove === 'paper' && computerMove === 'rock') {
+          result = 'player wins';
+          score.wins++;
+        } else if (playerMove === 'scissors' && computerMove === 'paper') {
+          result = 'player wins';
+          score.wins++;
+        } else {
+          result = 'computer wins';
+          score.losses++;
+        }
+        localStorage.setItem('score', JSON.stringify(score));
+
+        updateScoreElement()
+
+        document.querySelector('.result').innerHTML = result;
+
+        document.querySelector('.moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+      }
+      function pickComputerMove(){
+        // 	Math.random()生成一个范围在 0（含）到 1（不含） 的随机浮点数，
+        const randomIndex = Math.floor(Math.random() * 3);
+        const choices = ['rock', 'paper', 'scissors'];
+        return choices[randomIndex];
+      }
+
+      function updateScoreElement() {
+        document.querySelector('.score')
+          .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+      }
+    </script>
+  </body>
+</html>
