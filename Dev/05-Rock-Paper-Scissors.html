@@ -2,22 +2,83 @@
 <html>
 	<head>
 		<title>Rock Paper Scissors</title>
+    <style>
+      body {
+        background-color: rgb(25,25,25);
+        color: white;
+        font-family: arial;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      
+      .title {
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .move-icon {
+        height: 60px;
+      }
+      .move-icon2 {
+        height: 40px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .move-button {
+        background-color: transparent;
+        cursor: pointer;
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
+      }
+
+      .result {
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 50px;
+      }
+
+      .scoreType {
+        margin-top: 60px;
+      }
+
+      .resetButton {
+        background-color: white;
+        border:none;
+        font-size: 15px;
+        padding: 8px 15px;
+        cursor:pointer;
+      }
+    </style>
 	</head>
 	<body>
-    <p>Rock Paper Scissors</p>
-    <button onclick="playGame('rock');">Rock</button>
-    <button onclick="playGame('paper');">Paper</button>
-    <button onclick="playGame('scissors');">Scissors</button>
-    <p class="result"></p>
-    <p class="moves"></p>
-    <p class="score"></p>
+    <p class="title">Rock Paper Scissors</p>
+    
+    <button onclick="playGame('rock');" class="move-button">
+      <img src="./rock.png" class="move-icon">
+    </button>
+
+    <button onclick="playGame('scissors');" class="move-button">
+      <img src="./scissors.png" class="move-icon">
+    </button>
+    
+    <button onclick="playGame('paper');" class="move-button">
+      <img src="./paper.png" class="move-icon">
+    </button>
+    
+    
+    
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+    <p class="score scoreTpye"></p>
     <button onclick="
       score.wins = 0;
       score.losses = 0;
       score.ties = 0;
       localStorage.removeItem('score');
       updateScoreElement();
-    ">Reset score</button>
+    " class="resetButton">Reset score</button>
 
 
     <script>
@@ -40,13 +101,13 @@
           result = 'Tie';
           score.ties++;
         } else if (playerMove === 'rock' && computerMove === 'scissors') {
-          result = 'player wins';
+          result = 'you win';
           score.wins++;
         } else if (playerMove === 'paper' && computerMove === 'rock') {
-          result = 'player wins';
+          result = 'you win';
           score.wins++;
         } else if (playerMove === 'scissors' && computerMove === 'paper') {
-          result = 'player wins';
+          result = 'you win';
           score.wins++;
         } else {
           result = 'computer wins';
@@ -56,9 +117,12 @@
 
         updateScoreElement()
 
-        document.querySelector('.result').innerHTML = result;
+        document.querySelector('.js-result').innerHTML = result;
 
-        document.querySelector('.moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+        document.querySelector('.js-moves').innerHTML = `You 
+      <img src="./${playerMove}.png" class="move-icon2">
+      <img src="./${computerMove}.png" class="move-icon2">
+      Computer`;
       }
       function pickComputerMove(){
         // 	Math.random()生成一个范围在 0（含）到 1（不含） 的随机浮点数，
