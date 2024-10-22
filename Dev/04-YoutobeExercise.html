@@ -16,12 +16,22 @@
       Order over $40 = free shipping.<br>
     </p>
 
-    <input type="number" id="originalPrice" placeholder="enter price"> 
-    <button onclick="calculateShipping()">Calculate</button>
+    <input 
+      type="number" 
+      id="originalPrice" 
+      placeholder="enter price" 
+      onkeydown="handleKeydown(event);"> 
+    <button onclick="calculateShipping();">Calculate</button>
     
     <p id="result"></p>
     
     <script>
+      function handleKeydown(event){
+        if(event.key==='Enter'){
+        calculateShipping();
+      }
+      }
+
       function subscribe() {
         const subscribeButton = document.querySelector('.subscribeButton');
         if(subscribeButton.innerText === 'Subscribe') {
@@ -39,7 +49,7 @@
         const finalPrice = Number(price) + Number(shipping);
         
         const resultElement = document.getElementById('result');
-        resultElement.textContent = `${finalPrice}`;
+        resultElement.textContent = `$${finalPrice}`;
     }
     </script>
   </body>

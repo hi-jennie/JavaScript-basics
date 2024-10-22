@@ -24,6 +24,7 @@
       // 尝试从浏览器的 localStorage 中获取并解析分数数据。
 	    // 如果获取失败（如键名不存在或存储为空），则使用一个默认的分数对象 { wins: 0, losses: 0, ties: 0 }。
       // 后续当score更新了之后会直接从本地那score数据
+      // 当页面刷新或关闭时，页面中的数据（如分数、价格等）会丢失。localStorage 允许你将数据保存在浏览器中，即使用户关闭页面或刷新后，数据仍然可用。
       let score = JSON.parse(localStorage.getItem('score')) || {
         wins: 0,
         losses: 0,
