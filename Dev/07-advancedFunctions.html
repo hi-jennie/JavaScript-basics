@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Functions</title>
+</head>
+<body>
+    <script>
+      // function is also a value,which means it can be assigned to a variable
+      const greetFunction = function greeting(name) {
+        console.log(`Hello, ${name}`);
+      };
+
+      // anonymous function(function without a name)
+      const greetFunction2 = function(name) {
+        console.log(`Hello, ${name}`);
+      };
+      greetFunction('Jennie');
+      greetFunction2('Rustin');
+
+      // what can we do with the function value?
+      // 1.save it into an object
+      const object1 = {
+        name: 'Jennie',
+        greet: function(name) {
+          console.log(`Hello, ${name}`);
+        }
+      };
+
+      // 2.pass it as an argument,,this is called callback function
+      function greet(name, greetFunction) {
+        greetFunction(name);
+      }
+      // asynchronous function(computer won't wait for the setTimeout to finish)
+      setTimeout(greet('Jennie', greetFunction), 3000);
+      setInterval(greet('Rustin', greetFunction), 6000);
+      console.log('This is printed first');
+    </script>
+</body>
+</html>
