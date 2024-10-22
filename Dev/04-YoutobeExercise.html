@@ -2,13 +2,53 @@
 <html>
 	<head>
 		<title>Youtube</title>
+    <style>
+      body{
+        font-family: arial;
+      }
+      .subscribeButtonStyle{
+        border: none;
+        background-color: black;
+        color: white;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: bold;
+        border-radius: 50px;
+        cursor:pointer;
+        margin-bottom: 15px;
+      }
+
+      .is-subscribed{
+        background-color: rgb(240, 240, 240);
+        color: black;
+      }
+
+      .input-style{
+        font-size: 15px;
+        padding: 10px;
+      }
+
+      .calculate-style{
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 12px 50px;
+        font-size:15px ;
+        cursor: pointer;
+      }
+    </style>
 	</head>
 	<body>
-    <p>YouTuBe Subscribe Button</p><br>
-    <button onclick="subscribe();" class="subscribeButton">Subscribe</button>
+    <p>YouTuBe Subscribe Button</p>
+    <button onclick="subscribe();" class="subscribeButton subscribeButtonStyle">Subscribe</button>
 
     <p>Amazon</p>
     <a href="http://localhost:5500/Dev/02-cart-quantity.html">Click here</a>
+
+    <p>Rock Paper Scissors</p>
+    <a href="http://localhost:5500/Dev/05-Rock-Paper-Scissors.html">Click here</a>
 
     <p>
       Amazon Shipping Calculator<br>
@@ -17,11 +57,17 @@
     </p>
 
     <input 
+      class="input-style"
       type="number" 
       id="originalPrice" 
       placeholder="enter price" 
       onkeydown="handleKeydown(event);"> 
-    <button onclick="calculateShipping();">Calculate</button>
+    
+    <button 
+      class="calculate-style"
+      onclick="calculateShipping();
+    
+    ">Calculate</button>
     
     <p id="result"></p>
     
@@ -36,8 +82,11 @@
         const subscribeButton = document.querySelector('.subscribeButton');
         if(subscribeButton.innerText === 'Subscribe') {
           subscribeButton.innerText = 'Subscribed';
+          // this will override the corresponding css style
+          subscribeButton.classList.add('is-subscribed');
         } else {
           subscribeButton.innerText = 'Subscribe';
+          subscribeButton.classList.remove('is-subscribed');
         }
       }
       function calculateShipping() {
