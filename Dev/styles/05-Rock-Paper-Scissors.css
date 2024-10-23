@@ -38,7 +38,7 @@ body {
   margin-top: 60px;
 }
 
-.resetButton {
+.resetButton,.auto-play-button {
   background-color: white;
   border:none;
   font-size: 15px;

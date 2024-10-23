@@ -4,7 +4,22 @@
     <title>Advanced Functions</title>
 </head>
 <body>
+    <button onclick="" class="js-click-button">click</button>
     <script>
+      const buttonElement = document.querySelector('.js-click-button');
+
+      const click1 = () => {
+        console.log('Button is clicked');
+      };
+      
+
+      // this is better than onclick because we can add multiple functions to the same event
+      buttonElement.addEventListener('click', click1);// 没有()
+      buttonElement.addEventListener('click', function() {
+        console.log('Button is clicked');
+      });
+      buttonElement.removeEventListener('click', click1);
+
       // function is also a value,which means it can be assigned to a variable
       const greetFunction = function greeting(name) {
         console.log(`Hello, ${name}`);
@@ -34,6 +49,16 @@
       setTimeout(greet('Jennie', greetFunction), 3000);
       setInterval(greet('Rustin', greetFunction), 6000);
       console.log('This is printed first');
+
+      // arrow function
+      const arrowFunction = (name) => {
+        console.log(`Hello, ${name}`);
+      };
+      // arrow function with one parameter
+      // const arrowFunction = name => console.log(`Hello, ${name}`);
+  
+
+      arrowFunction('Rustin');
     </script>
 </body>
 </html>
